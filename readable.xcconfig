@@ -1,0 +1,19 @@
+//
+//  readable.xcconfig
+//  readable-framework
+//
+//  Created by Jan on 19.02.12.
+//  Copyright (c) 2012 geheimwerk.de. All rights reserved.
+//
+
+ARCHS = $(ARCHS_STANDARD_64_BIT) // We will have to backport from ARC, if we need 32-bit 10.6 support at some point.
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+GCC_C_LANGUAGE_STANDARD = gnu99
+
+SDKROOT = macosx
+MACOSX_DEPLOYMENT_TARGET = 10.6
+
+HEADER_SEARCH_PATHS = /usr/include/libxml2/ ./ICU/include ./readable
+GCC_PREPROCESSOR_DEFINITIONS = READABLE_USE_LIBICU
+
+//GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1 $(inherited)

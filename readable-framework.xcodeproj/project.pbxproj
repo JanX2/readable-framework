@@ -124,6 +124,7 @@
 		3D73468C14F0289B00284ECB /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		3D73468E14F028A600284ECB /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3D995E3A14F1162800E33E65 /* readable */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = readable; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D995E5C14F1223D00E33E65 /* readable.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = readable.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +227,7 @@
 				3D73461D14F0229A00284ECB /* readableTests */,
 				3D73460014F0229900284ECB /* Frameworks */,
 				3D36FAC214F02EC1000AAFA5 /* Libraries */,
+				3D995E5D14F1224600E33E65 /* Configs */,
 				3D7345FF14F0229900284ECB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -341,6 +343,14 @@
 				3D73466914F0273800284ECB /* visualizza_new.html_1525759126.html */,
 			);
 			path = tests;
+			sourceTree = "<group>";
+		};
+		3D995E5D14F1224600E33E65 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				3D995E5C14F1223D00E33E65 /* readable.xcconfig */,
+			);
+			name = Configs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,48 +545,37 @@
 /* Begin XCBuildConfiguration section */
 		3D73462614F0229A00284ECB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D995E5C14F1223D00E33E65 /* readable.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		3D73462714F0229A00284ECB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D995E5C14F1223D00E33E65 /* readable.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -588,15 +587,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "readable-framework/readable-framework-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					READABLE_USE_LIBICU,
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2/,
-					./ICU/include,
-					./readable,
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "readable-framework/readable-framework-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -611,12 +602,6 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "readable-framework/readable-framework-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = READABLE_USE_LIBICU;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2/,
-					./ICU/include,
-					./readable,
-				);
 				INFOPLIST_FILE = "readable-framework/readable-framework-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -651,14 +636,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					READABLE_USE_LIBICU,
+					"$(inherited)",
 					READABLE_DEBUG,
 				);
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2/,
-					./ICU/include,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = readable;
 			};
 			name = Debug;
@@ -666,12 +646,7 @@
 		3D995E4314F1162800E33E65 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = READABLE_USE_LIBICU;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2/,
-					./ICU/include,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				PRODUCT_NAME = readable;
 			};
 			name = Release;
