@@ -304,7 +304,7 @@ typedef int8_t UBool;
  * @draft ICU 4.4
  */
 
-#ifndef LIBXML_ICU_ENABLED
+#if !defined(LIBXML_ICU_ENABLED) || LIBXML_VERSION > 20000
 /* Define UChar to be compatible with wchar_t if possible. */
 #if U_SIZEOF_WCHAR_T==2
     typedef wchar_t UChar;
